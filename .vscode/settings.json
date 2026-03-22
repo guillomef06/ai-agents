@@ -1,0 +1,69 @@
+{
+  // ─── GitHub Copilot ─────────────────────────────────────────────────────────
+  "github.copilot.enable": {
+    "*": true
+  },
+
+  // Enable agents and custom instructions
+  "chat.instructionFilesLocations": {
+    ".github/instructions": true
+  },
+
+  // Show prompt files as quick-action suggestions when opening a new chat
+  "chat.promptFilesRecommendations": true,
+
+  // Enable MCP servers defined in mcp.json
+  "mcp.enabled": true,
+
+  // Monorepo support (VS Code 1.112+): discover .github/ customizations from parent
+  // folders up to the repo root when opening a subfolder (e.g. /backend or /frontend).
+  // Agents, instructions, skills, hooks and prompts defined at the monorepo root
+  // are automatically available in every package workspace.
+  "chat.useCustomizationsInParentRepositories": true,
+
+  // ─── Agent hooks (VS Code 1.111+) ───────────────────────────────────────────
+  // Required to activate hooks defined in .agent.md frontmatter (agent-scoped hooks)
+  // and to load workspace hooks from .github/hooks/*.json
+  "chat.useCustomAgentHooks": true,
+
+  // Autopilot: agent runs autonomously without approval prompts until task complete.
+  // Disabled by default — enable per session via the permissions picker in the Chat view.
+  // WARNING: Autopilot auto-approves file edits AND terminal commands without confirmation.
+  // Only enable for trusted tasks. See: https://code.visualstudio.com/updates/v1_111
+  "chat.autopilot.enabled": false,
+
+  // Hook script protection (VS Code 1.111+ hooks security guidance):
+  // Prevents agents from auto-approving edits to their own hook scripts during execution.
+  // This avoids a hook script modifying itself and executing the code it writes.
+  // Set to true to require manual approval before any hook script file is edited by an agent.
+  "chat.tools.edits.autoApprove": false,
+
+  // ─── Editor quality of life ─────────────────────────────────────────────────
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.rulers": [100],
+  "editor.tabSize": 2,
+
+  // ─── Files ───────────────────────────────────────────────────────────────────
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/target": true
+  },
+
+  // ─── Testing ─────────────────────────────────────────────────────────────────
+  "testing.automaticallyOpenPeekView": "never",
+  "testing.coverageBarThresholds": {
+    "statement": 80,
+    "branch": 70,
+    "function": 80,
+    "line": 80
+  }
+}

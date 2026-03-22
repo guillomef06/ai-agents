@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    // PostToolUse — runs Prettier after every file edit, only if a Prettier config
+    // exists in the workspace root. This makes the hook a no-op on Java/Python/etc.
+    // projects that don't use Prettier, while being fully automatic on JS/TS/front-end repos.
+    //
+    // Prettier config detection: .prettierrc | .prettierrc.* | prettier.config.*
+    // Prettier file scope: .js .jsx .ts .tsx .css .scss .html .json .yaml .yml .md .vue
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "ls .prettierrc* prettier.config.* 2>/dev/null | grep -q . && [ -n \"$TOOL_INPUT_FILE_PATH\" ] && npx prettier --write \"$TOOL_INPUT_FILE_PATH\" 2>/dev/null; exit 0",
+        "windows": "if ((Test-Path '.prettierrc*') -or (Test-Path 'prettier.config.*')) { if ($env:TOOL_INPUT_FILE_PATH) { npx prettier --write $env:TOOL_INPUT_FILE_PATH 2>$null } }; exit 0",
+        "timeout": 20
+      }
+    ]
+  }
+}

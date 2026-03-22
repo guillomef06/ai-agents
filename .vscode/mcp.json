@@ -1,0 +1,70 @@
+{
+  // MCP Server declarations for GitHub Copilot in VS Code
+  // Replace ${env:VAR} with actual env var names set in your shell profile
+  // or use VS Code input variables for secrets (see README)
+  "servers": {
+    // ─── File System ────────────────────────────────────────────────────────────
+    // Secure file access scoped to the workspace
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "${workspaceFolder}"],
+      "description": "Read and write files within the workspace"
+    },
+
+    // ─── GitHub ──────────────────────────────────────────────────────────────────
+    // Manage issues, PRs, repos via the GitHub API
+    // Requires: GITHUB_PERSONAL_ACCESS_TOKEN env var
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+      },
+      "description": "GitHub issues, PRs, repositories"
+    },
+
+    // ─── Memory ──────────────────────────────────────────────────────────────────
+    // Persistent memory store — agent can remember context across sessions
+    "memory": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "description": "Persistent key-value memory across chat sessions"
+    },
+
+    // ─── Brave Search ─────────────────────────────────────────────────────────
+    // Web search for docs, CVEs, package versions
+    // Requires: BRAVE_API_KEY env var (free tier available at brave.com/search/api)
+    "brave-search": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "${env:BRAVE_API_KEY}"
+      },
+      "description": "Web search for documentation, CVEs, and external references"
+    },
+
+    // ─── Sequential Thinking ────────────────────────────────────────────────────
+    // Forces structured step-by-step reasoning for complex problems
+    "sequential-thinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "description": "Structured multi-step reasoning for complex architectural or debugging problems"
+    },
+
+    // ─── Playwright ──────────────────────────────────────────────────────────────
+    // Browser automation for the @e2e-tester agent:
+    // navigate pages, click elements, fill forms, take screenshots, run test files.
+    // Requires: Node.js 18+. No API key needed.
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp"],
+      "description": "Browser automation — used by the e2e-tester agent to run and debug Playwright tests"
+    }
+  }
+}
