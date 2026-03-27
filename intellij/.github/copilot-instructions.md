@@ -17,8 +17,7 @@ Prefer the simplest working solution. Add abstraction only when you have two or 
 - Validate and sanitize **all** external inputs (user input, API responses, env vars)
 - Never hardcode credentials, API keys, tokens, or secrets — use environment variables
 - Use HTTPS for all external calls; never mix HTTP and HTTPS
-- Apply least-privilege principle to roles, permissions, and database access
-- Use parameterized queries — never string-concatenated SQL
+- Apply least-privilege principle to roles and permissions
 
 ## Testing
 
@@ -33,6 +32,16 @@ Prefer the simplest working solution. Add abstraction only when you have two or 
 2. Ask clarifying questions when requirements are ambiguous
 3. Run tests and validate the build after changes
 4. Preserve existing conventions (naming, structure, style)
+
+## Unknown or Version-Specific Technology
+
+Never rely solely on training data for framework APIs, configuration options, or breaking changes — models have a knowledge cutoff and training data gaps.
+
+When you encounter a framework, library, or version you are uncertain about:
+1. **Fetch the official documentation** before writing any code — use the `fetch` tool on the official docs URL or changelog
+2. **Search if no URL is known** — use the `brave-search` tool to find the official docs first, then fetch the relevant page
+3. **Check the project's own deps file** (`package.json`, `pom.xml`, `requirements.txt`, etc.) to confirm the exact version, then target that version's docs specifically
+4. **Prefer official sources**: official docs > GitHub README > community guides
 
 ## On-Demand Expertise
 

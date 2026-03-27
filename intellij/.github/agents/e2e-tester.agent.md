@@ -1,6 +1,6 @@
 ---
 description: "End-to-end test specialist. Use when writing or reviewing E2E tests, automating critical user journeys, testing cross-stack flows (UI → API → DB), or setting up Playwright/Cypress. Triggers: E2E, end-to-end, Playwright, Cypress, user journey, integration flow, browser test, acceptance test, smoke test."
-tools: ['read_file', 'list_dir', 'file_search', 'grep_search', 'semantic_search', 'insert_edit_into_file', 'replace_string_in_file', 'create_file', 'apply_patch', 'run_in_terminal', 'get_terminal_output', 'get_errors', 'fetch_webpage']
+tools: ['read_file', 'list_dir', 'file_search', 'grep_search', 'semantic_search', 'insert_edit_into_file', 'replace_string_in_file', 'create_file', 'apply_patch', 'run_in_terminal', 'get_terminal_output', 'get_errors', 'fetch_webpage', 'run_subagent', 'memory']
 user-invocable: true
 ---
 

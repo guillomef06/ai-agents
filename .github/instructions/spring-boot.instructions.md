@@ -5,7 +5,8 @@ applyTo: "**/*.java,**/application*.yml,**/application*.properties,**/pom.xml,**
 
 # Spring Boot Standards
 
-> Targets **Spring Boot 3.x** + **Spring Security 6.x** + **Java 17+**.
+> Version-specific practices are applied dynamically by the agent based on the detected `spring-boot` version in `pom.xml` / `build.gradle`.
+> This file documents patterns valid from **Boot 3.x onward**. For Boot 2.x specifics, the agent will adapt on detection.
 > Key breaking change from Boot 2: all imports are `jakarta.*` not `javax.*`.
 
 ---
@@ -385,3 +386,5 @@ If `liquibase-core` is present in `pom.xml`:
 | `@NotNull` / `@Valid` not working | Missing `spring-boot-starter-validation` | Add to `pom.xml`: `spring-boot-starter-validation` |
 | Circular dependency | Field injection creating cycles | Switch to constructor injection + `@Lazy` if unavoidable |
 | Migration conflicts with Hibernate | `ddl-auto=create` + Liquibase both manage schema | Set `ddl-auto=validate` when Liquibase is present |
+| `MockMvc` / `@WebMvcTest` context fails | Missing test module counterpart (Boot 4 modular test slices) | Each web module requires its paired test starter: `spring-webmvc` → `spring-test`, `spring-security` → `spring-security-test`, `spring-data-jpa` → `@DataJpaTest`. Always declare `spring-boot-starter-test` **and** the matching `*-test` artifact when the slice doesn't pull it transitively. |
+| `WebTestClient` not available in `@WebMvcTest` | Wrong test client for the stack | `WebTestClient` is for reactive (`@WebFluxTest`); use `MockMvc` for servlet-based controllers |

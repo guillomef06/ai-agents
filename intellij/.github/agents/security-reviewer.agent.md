@@ -1,6 +1,6 @@
 ---
 description: "Security audit specialist. Use when reviewing code for vulnerabilities, auditing authentication/authorization flows, checking input validation, analyzing OWASP Top 10 risks, reviewing dependencies for CVEs, or hardening API endpoints. Triggers: security, vulnerability, OWASP, injection, XSS, CSRF, SQLi, auth, authorization, CVE, secrets, hardening, penetration, pentest."
-tools: ['read_file', 'file_search', 'grep_search', 'semantic_search', 'validate_cves', 'fetch_webpage']
+tools: ['read_file', 'list_dir', 'file_search', 'grep_search', 'semantic_search', 'insert_edit_into_file', 'replace_string_in_file', 'create_file', 'apply_patch', 'run_in_terminal', 'get_terminal_output', 'get_errors', 'fetch_webpage', 'run_subagent', 'memory', 'validate_cves']
 user-invocable: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 description: "Code quality reviewer orchestrator. Use when reviewing a pull request, auditing code quality, checking SOLID/KISS/DRY compliance, reviewing naming conventions, identifying dead code, or evaluating a refactoring proposal. Triggers: review, PR, pull request, code quality, refactor, naming, clean code, technical debt, smell."
-tools: [read, search, todo, agent, fetch]
+tools: [read, edit, search, execute, todo, agent, fetch, memory]
 user-invocable: true
 agents: [review-correctness, review-quality, review-architecture, security-reviewer]
 ---

@@ -1,6 +1,6 @@
 ---
 description: "Internal worker: reviews code for architectural consistency — layer violations, pattern alignment, coupling, and reuse of existing utilities. Only invocable as a subagent by the code-reviewer orchestrator."
-tools: [read, search]
+tools: [read, edit, search, execute, todo, agent, fetch, memory]
 user-invocable: false
 ---
 

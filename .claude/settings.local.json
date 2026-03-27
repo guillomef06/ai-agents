@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs -I {} head -30 {})",
+      "Bash(xargs cat:*)",
+      "Bash(grep \"^tools:\" D:/workplace/ai-agents/.github/agents/*.agent.md)",
+      "Bash(grep \"^tools:\" D:/workplace/ai-agents/vscode/.github/agents/*.agent.md)",
+      "Bash(sed 's/\\\\.agent\\\\.md//' echo \"=== INTELLIJ BUNDLE ===\")",
+      "Bash(grep \"^tools:\" D:/workplace/ai-agents/intellij/.github/agents/*.agent.md)",
+      "Bash(sed 's/.*agents\\\\///' echo \"=== VSCODE ===\")",
+      "Bash(sed 's/.*agents\\\\///' echo \"=== INTELLIJ ===\")",
+      "Read(//c/Users/Guillaume/.claude/**)",
+      "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/code-review\")",
+      "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/refactor\")",
+      "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/debug\")",
+      "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/generate-tests\")",
+      "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/pr-description\")"
+    ]
+  }
+}

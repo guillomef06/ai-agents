@@ -1,6 +1,6 @@
 ---
 description: "Internal worker: reviews code for correctness — logic errors, missing error handling, null references, and edge cases. Only invocable as a subagent by the code-reviewer orchestrator."
-tools: ['read_file', 'list_dir', 'file_search', 'grep_search', 'semantic_search', 'insert_edit_into_file', 'replace_string_in_file', 'create_file', 'apply_patch', 'run_in_terminal', 'get_terminal_output', 'get_errors', 'fetch_webpage']
+tools: ['read_file', 'list_dir', 'file_search', 'grep_search', 'semantic_search', 'insert_edit_into_file', 'replace_string_in_file', 'create_file', 'apply_patch', 'run_in_terminal', 'get_terminal_output', 'get_errors', 'fetch_webpage', 'run_subagent', 'memory']
 user-invocable: false
 ---
 

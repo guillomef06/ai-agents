@@ -1,6 +1,6 @@
 ---
 description: "Internal worker: reviews code for correctness — logic errors, missing error handling, null references, and edge cases. Only invocable as a subagent by the code-reviewer orchestrator."
-tools: [read, search]
+tools: [read, edit, search, execute, todo, agent, fetch, memory]
 user-invocable: false
 ---
 

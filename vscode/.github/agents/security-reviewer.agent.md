@@ -1,6 +1,6 @@
 ---
 description: "Security audit specialist. Use when reviewing code for vulnerabilities, auditing authentication/authorization flows, checking input validation, analyzing OWASP Top 10 risks, reviewing dependencies for CVEs, or hardening API endpoints. Triggers: security, vulnerability, OWASP, injection, XSS, CSRF, SQLi, auth, authorization, CVE, secrets, hardening, penetration, pentest."
-tools: [read, search, todo, fetch]
+tools: [read, edit, search, execute, todo, agent, fetch, memory]
 user-invocable: true
 hooks:
   # SessionStart hook: runs `npm audit` and injects the vulnerability summary

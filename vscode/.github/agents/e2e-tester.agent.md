@@ -1,6 +1,6 @@
 ---
 description: "End-to-end test specialist. Use when writing or reviewing E2E tests, automating critical user journeys, testing cross-stack flows (UI → API → DB), or setting up Playwright/Cypress. Triggers: E2E, end-to-end, Playwright, Cypress, user journey, integration flow, browser test, acceptance test, smoke test."
-tools: [read, edit, search, execute, todo, playwright/*]
+tools: [read, edit, search, execute, todo, agent, fetch, memory, playwright/*]
 user-invocable: true
 ---
 
