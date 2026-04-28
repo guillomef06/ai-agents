@@ -15,8 +15,8 @@ There is no `package.json`, `Makefile`, or build system at the root. This repo i
 ```
 .github/                        # Source of truth — active configuration
   copilot-instructions.md       # Global standards applied to all agents
-  agents/                       # 11 specialized AI agent definitions (.agent.md)
-  instructions/                 # 9 auto-applied per-file-type instructions
+  agents/                       # 10 specialized AI agent definitions (.agent.md)
+  instructions/                 # 11 auto-applied per-file-type instructions
   prompts/                      # 6 reusable slash commands (/code-review, /debug, etc.)
   skills/                       # 8 deep domain knowledge modules (SOLID, OWASP, etc.)
   hooks/scripts/                # Lifecycle automation (auto-run tests, auto-format)
@@ -32,11 +32,12 @@ intellij/                       # Distributable bundle copy for JetBrains projec
 
 The bundle uses a **multi-agent orchestration pattern**:
 
-- `@full-stack-dev` — Orchestrator. Clarifies requirements, delegates to subagents, synthesizes results.
-- `@backend-dev`, `@frontend-dev`, `@ionic-dev` — Domain specialists invoked by the orchestrator.
+- `@dev` — Senior full-stack developer. Implements features, bugfixes, APIs, UI components, and migrations.
+- `@tech-lead` — Orchestrator. Clarifies requirements, breaks down work, delegates to `@dev` subagents in parallel, verifies DoD.
 - `@test-writer` — QA agent with an auto-run hook: tests execute on agent stop; failures are fed back for autonomous fixing.
 - `@code-reviewer` — Orchestrates 3 parallel subagents: `review-correctness`, `review-quality`, `review-architecture`.
 - `@security-reviewer`, `@e2e-tester` — Specialized audit/test agents.
+- `@db-analyzer` — Database performance analyst. Diagnoses slow queries, indexes, lock contention.
 
 Agent files (`.agent.md`) use YAML frontmatter to declare: description, tools, subagents, and user-invocable status.
 

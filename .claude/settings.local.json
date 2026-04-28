@@ -14,7 +14,15 @@
       "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/refactor\")",
       "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/debug\")",
       "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/generate-tests\")",
-      "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/pr-description\")"
+      "Bash(mkdir -p \"C:/Users/Guillaume/.claude/skills/pr-description\")",
+      "Bash(git:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//d/workplace/ai-agents/**)",
+      "Bash(done)",
+      "WebSearch",
+      "Bash(gh api *)",
+      "Bash(python -c \"import sys,json; [print\\(f['name']\\) for f in json.load\\(sys.stdin\\)]\")"
     ]
   }
 }

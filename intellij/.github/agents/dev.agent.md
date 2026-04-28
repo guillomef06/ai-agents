@@ -35,6 +35,7 @@ You receive a clear implementation brief. Do not re-clarify requirements — imp
    - No magic numbers or strings — use named constants
    - No unused imports or variables
    - New code follows the naming and structural conventions already in the codebase
+   - No function body over ~20 lines containing distinct logical blocks — extract named helpers
 
 > Framework-specific standards (Spring Boot, Express, Fastify, Django, Angular, React, Ionic, etc.) are applied automatically via the project's instruction files when the relevant file types are detected.
 

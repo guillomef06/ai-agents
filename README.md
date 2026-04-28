@@ -20,13 +20,12 @@
 ├── .github/                             # Source de vérité — actif dans ce workspace
 │   ├── copilot-instructions.md          # Standards globaux — chargé automatiquement (VS Code + JetBrains)
 │   ├── agents/                          # Agents spécialisés — sélecteur @ dans le chat VS Code
-│   │   ├── backend-dev.agent.md
-│   │   ├── frontend-dev.agent.md
-│   │   ├── full-stack-dev.agent.md
-│   │   ├── ionic-dev.agent.md
+│   │   ├── dev.agent.md                 # Développeur senior full-stack
+│   │   ├── tech-lead.agent.md           # Orchestrateur : clarification + délégation à dev
 │   │   ├── test-writer.agent.md
 │   │   ├── e2e-tester.agent.md
 │   │   ├── security-reviewer.agent.md
+│   │   ├── db-analyzer.agent.md         # Analyste performance DB
 │   │   └── code-reviewer.agent.md       # + 3 workers internes (review-*)
 │   ├── instructions/                    # Instructions auto-attachées par type de fichier
 │   │   ├── typescript.instructions.md   # applyTo: **/*.{ts,tsx}
@@ -37,6 +36,8 @@
 │   │   ├── angular.instructions.md      # applyTo: **/*.{component,service,...}.ts
 │   │   ├── ionic.instructions.md        # applyTo: **/*.page.{ts,html,scss}
 │   │   ├── testing.instructions.md      # applyTo: **/*.{test,spec}.*
+│   │   ├── ui-design.instructions.md    # applyTo: **/*.{css,scss,html,vue,svelte}
+│   │   ├── database.instructions.md     # applyTo: **/*.sql, migrations/**, schema.prisma
 │   │   └── security.instructions.md     # On-demand (description-based)
 │   ├── prompts/                         # Commandes / dans le chat (slash commands)
 │   │   ├── code-review.prompt.md
@@ -122,14 +123,13 @@ Dans VS Code, ouvrez le chat Copilot et sélectionnez un agent via le sélecteur
 
 | Agent | Quand l'utiliser |
 |---|---|
-| `@backend-dev` | APIs, bases de données, microservices, auth |
-| `@frontend-dev` | Composants UI, accessibilité, performance |
-| `@ionic-dev` | Pages Ionic, Capacitor, navigation mobile, iOS/Android |
-| `@full-stack-dev` | Orchestrateur : clarifie le besoin, délègue aux subagents, synthétise |
+| `@dev` | Implémentation — features, bugfixes, APIs, composants UI, migrations full-stack |
+| `@tech-lead` | Clarification requirements, découpage en sous-tâches, délégation à `@dev` |
 | `@test-writer` | Tests unitaires et intégration |
 | `@e2e-tester` | Tests E2E Playwright/Cypress — parcours utilisateur critiques |
 | `@security-reviewer` | Audit OWASP, analyse de vulnérabilités |
-| `@code-reviewer` | Revue de PR multi-perspectives (4 subagents en parallèle) |
+| `@db-analyzer` | Performance DB — slow queries, indexes, EXPLAIN, lock contention |
+| `@code-reviewer` | Revue de PR multi-perspectives (3 subagents en parallèle) |
 
 > `review-correctness`, `review-quality`, `review-architecture` sont des workers internes — ils n'apparaissent pas dans le sélecteur `@` mais sont invoqués automatiquement par `@code-reviewer`.
 
@@ -149,8 +149,10 @@ Quand vous ouvrez ou modifiez un fichier, Copilot charge automatiquement l'instr
 | `*.component.ts`, `*.service.ts`… | Angular standalone, RxJS, OnPush, JWT storage |
 | `*.page.ts`, `*.page.html` | Ionic lifecycle, Capacitor, mobile perf |
 | `*.test.*`, `*.spec.*` | AAA pattern, isolation, mocking |
+| `*.css`, `*.scss`, `*.html`, `*.vue`… | Design tokens, responsive, états UI requis |
+| `*.sql`, `migrations/**`, `schema.prisma`… | Standards DB, index, transactions, ORMs |
 
-L'instruction `security.instructions.md` est chargée **à la demande** (on-demand) quand le contexte est lié à la sécurité.
+Les instructions `security.instructions.md` et `database.instructions.md` sont également chargées **à la demande** (on-demand) selon le contexte décrit.
 
 ---
 
